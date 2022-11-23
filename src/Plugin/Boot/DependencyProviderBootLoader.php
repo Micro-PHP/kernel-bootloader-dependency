@@ -28,13 +28,15 @@ class DependencyProviderBootLoader implements PluginBootLoaderInterface
     }
 
     /**
+     *
+     * @TODO: uncomment at 2.0 version
      * {@inheritDoc}
      */
     public function boot(ApplicationPluginInterface $applicationPlugin): void
     {
-        if(!($applicationPlugin instanceof DependencyProviderInterface)) {
-            return;
-        }
+        //if(!($applicationPlugin instanceof DependencyProviderInterface)) {
+        //    return;
+        //}
 
         $applicationPlugin->provideDependencies($this->container);
     }

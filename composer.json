@@ -1,5 +1,5 @@
 {
-    "name": "micro/kernel-boot-loader-dependency",
+    "name": "micro/kernel-boot-dependency",
     "description": "Micro Framework: Kernel Boot loader - component to provide dependencies",
     "type": "library",
     "version": "1.0",
@@ -7,10 +7,13 @@
         "micro/kernel": "^1",
         "micro/autowire": "^1"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Micro\\Kernel\\": "src/"
+            "Micro\\Framework\\Kernel\\": "src/"
         }
     },
     "authors": [

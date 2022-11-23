@@ -4,7 +4,7 @@ namespace Micro\Framework\Kernel\Plugin;
 
 use Micro\Component\DependencyInjection\Container;
 
-interface DependencyProviderInterface
+interface DependencyProviderInterface extends ApplicationPluginInterface
 {
     /**
      * @param  Container $container

@@ -2,7 +2,7 @@
     "name": "micro/kernel-boot-dependency",
     "description": "Micro Framework: Kernel Boot loader - component to provide dependencies",
     "type": "library",
-    "version": "1.0",
+    "version": "2.0",
     "require": {
         "micro/kernel": "^1",
         "micro/autowire": "^1"

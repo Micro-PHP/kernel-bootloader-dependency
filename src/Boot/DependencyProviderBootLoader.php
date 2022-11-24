@@ -1,19 +1,19 @@
 <?php
 
-namespace Micro\Framework\Kernel\Plugin\Boot;
+namespace Micro\Framework\Kernel\Boot;
 
 use Micro\Component\DependencyInjection\Autowire\ContainerAutowire;
 use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Plugin\ApplicationPluginInterface;
 use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
 use Micro\Framework\Kernel\Plugin\PluginBootLoaderInterface;
+use Psr\Container\ContainerInterface;
 
 class DependencyProviderBootLoader implements PluginBootLoaderInterface
 {
     /**
      * @var Container
      */
-    private readonly Container $container;
+    private readonly ContainerInterface $container;
 
     /**
      * @param Container $container
@@ -32,11 +32,11 @@ class DependencyProviderBootLoader implements PluginBootLoaderInterface
      * @TODO: uncomment at 2.0 version
      * {@inheritDoc}
      */
-    public function boot(ApplicationPluginInterface $applicationPlugin): void
+    public function boot(object $applicationPlugin): void
     {
-        //if(!($applicationPlugin instanceof DependencyProviderInterface)) {
-        //    return;
-        //}
+        if(!($applicationPlugin instanceof DependencyProviderInterface)) {
+            return;
+        }
 
         $applicationPlugin->provideDependencies($this->container);
     }

@@ -7,7 +7,7 @@ use Micro\Component\DependencyInjection\Container;
 /**
  * @TODO: Remove extends for 2.0 version
  */
-interface DependencyProviderInterface extends ApplicationPluginInterface
+interface DependencyProviderInterface
 {
     /**
      * @param  Container $container

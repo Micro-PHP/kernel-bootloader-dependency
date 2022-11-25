@@ -3,8 +3,7 @@
 namespace Micro\Framework\Kernel\Plugin\Boot\Test;
 
 use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Plugin\ApplicationPluginInterface;
-use Micro\Framework\Kernel\Plugin\Boot\DependencyProviderBootLoader;
+use Micro\Framework\Kernel\Boot\DependencyProviderBootLoader;
 use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -32,18 +31,7 @@ class DependencyProviderBootLoaderTest extends TestCase
             ->method('name')
             ->willReturn('test');
 
-        $pluginNotDependencyProvider = new class implements ApplicationPluginInterface
-        {
-            public function provideDependencies(Container $container): void
-            {
-                throw new \Exception('Not Allowed here !');
-            }
-
-            public function name(): string
-            {
-                return 'test-plugin';
-            }
-        };
+        $pluginNotDependencyProvider = new class{};
 
         foreach ([ $pluginMock, $pluginNotDependencyProvider ] as $plugin) {
             $dataProviderBootLoader->boot($plugin);

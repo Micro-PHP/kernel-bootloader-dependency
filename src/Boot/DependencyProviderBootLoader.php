@@ -2,6 +2,9 @@
 
 namespace Micro\Framework\Kernel\Boot;
 
+use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactory;
+use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactoryInterface;
+use Micro\Component\DependencyInjection\Autowire\AutowireHelperInterface;
 use Micro\Component\DependencyInjection\Autowire\ContainerAutowire;
 use Micro\Component\DependencyInjection\Container;
 use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
@@ -18,13 +21,18 @@ class DependencyProviderBootLoader implements PluginBootLoaderInterface
     /**
      * @param Container $container
      */
-    public function __construct(Container $container)
+    public function __construct(ContainerInterface $container)
     {
         if(!($container instanceof ContainerAutowire)) {
             $container = new ContainerAutowire($container);
         }
 
         $this->container = $container;
+
+        $this->container->register(AutowireHelperInterface::class,
+            fn () => (new AutowireHelperFactory($this->container))
+                ->create()
+        );
     }
 
     /**

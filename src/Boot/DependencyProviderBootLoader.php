@@ -1,9 +1,17 @@
 <?php
 
+/*
+ *  This file is part of the Micro framework package.
+ *
+ *  (c) Stanislau Komar <kost@micro-php.net>
+ *
+ *  For the full copyright and license information, please view the LICENSE
+ *  file that was distributed with this source code.
+ */
+
 namespace Micro\Framework\Kernel\Boot;
 
 use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactory;
-use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactoryInterface;
 use Micro\Component\DependencyInjection\Autowire\AutowireHelperInterface;
 use Micro\Component\DependencyInjection\Autowire\ContainerAutowire;
 use Micro\Component\DependencyInjection\Container;
@@ -23,7 +31,7 @@ class DependencyProviderBootLoader implements PluginBootLoaderInterface
      */
     public function __construct(ContainerInterface $container)
     {
-        if(!($container instanceof ContainerAutowire)) {
+        if (!($container instanceof ContainerAutowire)) {
             $container = new ContainerAutowire($container);
         }
 
@@ -36,13 +44,12 @@ class DependencyProviderBootLoader implements PluginBootLoaderInterface
     }
 
     /**
-     *
      * @TODO: uncomment at 2.0 version
      * {@inheritDoc}
      */
     public function boot(object $applicationPlugin): void
     {
-        if(!($applicationPlugin instanceof DependencyProviderInterface)) {
+        if (!($applicationPlugin instanceof DependencyProviderInterface)) {
             return;
         }
 

@@ -9,13 +9,10 @@
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Framework\Kernel\Plugin;
+namespace Micro\Framework\BootDependency\Plugin;
 
-use Micro\Component\DependencyInjection\Container;
+use Micro\Framework\DependencyInjection\Container;
 
-/**
- * @TODO: Remove extends for 2.0 version
- */
 interface DependencyProviderInterface
 {
     public function provideDependencies(Container $container): void;

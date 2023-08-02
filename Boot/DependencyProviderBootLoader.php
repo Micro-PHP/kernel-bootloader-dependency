@@ -9,13 +9,13 @@
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Framework\Kernel\Boot;
+namespace Micro\Framework\BootDependency\Boot;
 
 use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactory;
 use Micro\Component\DependencyInjection\Autowire\AutowireHelperInterface;
 use Micro\Component\DependencyInjection\Autowire\ContainerAutowire;
-use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
+use Micro\Framework\DependencyInjection\Container;
+use Micro\Framework\BootDependency\Plugin\DependencyProviderInterface;
 use Micro\Framework\Kernel\Plugin\PluginBootLoaderInterface;
 use Psr\Container\ContainerInterface;
 

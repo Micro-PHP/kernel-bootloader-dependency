@@ -9,11 +9,11 @@
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Framework\Kernel\Test\Unit\Boot;
+namespace Micro\Framework\BootDependency\Tests\Unit\Boot;
 
-use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Boot\DependencyProviderBootLoader;
-use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
+use Micro\Framework\DependencyInjection\Container;
+use Micro\Framework\BootDependency\Boot\DependencyProviderBootLoader;
+use Micro\Framework\BootDependency\Plugin\DependencyProviderInterface;
 use PHPUnit\Framework\TestCase;
 
 class DependencyProviderBootLoaderTest extends TestCase

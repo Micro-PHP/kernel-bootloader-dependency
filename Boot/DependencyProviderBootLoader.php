@@ -11,20 +11,20 @@
 
 namespace Micro\Framework\BootDependency\Boot;
 
-use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactory;
-use Micro\Component\DependencyInjection\Autowire\AutowireHelperInterface;
-use Micro\Component\DependencyInjection\Autowire\ContainerAutowire;
+use Micro\Framework\Autowire\AutowireHelperFactory;
+use Micro\Framework\Autowire\AutowireHelperInterface;
+use Micro\Framework\Autowire\ContainerAutowire;
 use Micro\Framework\DependencyInjection\Container;
 use Micro\Framework\BootDependency\Plugin\DependencyProviderInterface;
 use Micro\Framework\Kernel\Plugin\PluginBootLoaderInterface;
 use Psr\Container\ContainerInterface;
 
-class DependencyProviderBootLoader implements PluginBootLoaderInterface
+readonly class DependencyProviderBootLoader implements PluginBootLoaderInterface
 {
     /**
      * @var Container
      */
-    private readonly ContainerInterface $container;
+    private ContainerInterface $container;
 
     /**
      * @param Container $container
@@ -37,14 +37,15 @@ class DependencyProviderBootLoader implements PluginBootLoaderInterface
 
         $this->container = $container;
 
-        $this->container->register(AutowireHelperInterface::class,
-            fn () => (new AutowireHelperFactory($this->container))
-                ->create()
+        $this->container->register(
+            AutowireHelperInterface::class,
+            fn () => (new AutowireHelperFactory($this->container))->create()
         );
     }
 
     /**
      * @TODO: uncomment at 2.0 version
+     *
      * {@inheritDoc}
      */
     public function boot(object $applicationPlugin): void

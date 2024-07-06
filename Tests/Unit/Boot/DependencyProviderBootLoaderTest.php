@@ -18,10 +18,7 @@ use PHPUnit\Framework\TestCase;
 
 class DependencyProviderBootLoaderTest extends TestCase
 {
-    /**
-     * @return void
-     */
-    public function testBoot()
+    public function testBoot(): void
     {
         $container = new Container();
 

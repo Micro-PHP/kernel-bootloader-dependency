@@ -48,12 +48,12 @@ readonly class DependencyProviderBootLoader implements PluginBootLoaderInterface
      *
      * {@inheritDoc}
      */
-    public function boot(object $applicationPlugin): void
+    public function boot(object $plugin): void
     {
-        if (!($applicationPlugin instanceof DependencyProviderInterface)) {
+        if (!($plugin instanceof DependencyProviderInterface)) {
             return;
         }
 
-        $applicationPlugin->provideDependencies($this->container);
+        $plugin->provideDependencies($this->container);
     }
 }
